@@ -8,6 +8,6 @@ def get_pics(params):
     #Preprocessing will go here
     transform=transforms.Compose([
         ])
-    dataset=dset.ImageFolder(root=root,transform=none)
+    dataset=dset.ImageFolder(root=root,transform=None)
     dataloader=torch.utils.data.DataLoader(dataset,batch_size=params['bsize'],shuffle=True)
     return dataloader
