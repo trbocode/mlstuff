@@ -19,4 +19,4 @@ class Net(nn.module):
         x=F.LeakyReLU(self.anticonv2(x))
 
 criterion=nn.MSELoss()
-optimizer=optim.Adam(net.parameters(),lr=0.001)
+optimizer=optim.Adam(Net.parameters(),lr=0.001)
