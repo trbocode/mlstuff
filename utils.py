@@ -6,8 +6,10 @@ root = '/home/ML_courses/03683533_2021/dataset'
 
 def get_pics(params):
     #Preprocessing will go here
-    transform=transforms.Compose([
+    transform=transforms.Compose([transforms.ToTensor()
         ])
+
     dataset=dset.ImageFolder(root=root,transform=None)
+    
     dataloader=torch.utils.data.DataLoader(dataset,batch_size=params['bsize'],shuffle=True)
     return dataloader
