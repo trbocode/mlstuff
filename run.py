@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 params = {'bsize': 128,
          'nc': 3,
-         'nf': 256,
+         'nf': 64,
          'ncode': 3,
          'n_epochs': 5}
 
