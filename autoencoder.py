@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
-class Net(nn.module):
+class Net(nn.Module):
     def __init__(self,params):
         super(Net, self).__init__()
 
@@ -32,4 +32,4 @@ class Net(nn.module):
         x=F.LeakyReLU(self.anticonv4(x))
 
 criterion=nn.MSELoss()
-optimizer=optim.Adam(Net.parameters(),lr=0.001)
+# optimizer=optim.Adam(Net().parameters(),lr=0.001)
