@@ -1,18 +1,19 @@
 import utils as ut
 import autoencoder as ae
 import torch
+import torch.optim as optim
 import matplotlib.pyplot as plt
 
 params = {'bsize': 128,
-         'nc': 3
-         'nf': 256
-         'ncode': 3
-          'n_epochs': 5}
+         'nc': 3,
+         'nf': 256,
+         'ncode': 3,
+         'n_epochs': 5}
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-net=ae.Net()
+net=ae.Net(params)
 net.to(device)
-optimizer=ae.optimizer
+optimizer=optim.Adam(net.parameters(),lr=0.001)
 criterion=ae.criterion
 dataloader=ut.get_pics(params)
 alllosses=[]
