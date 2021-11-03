@@ -4,7 +4,7 @@ import torchvision.datasets as dset
 import os
 from PIL import Image
 
-root = '/home/ML_courses/03683533_2021/dataset/'
+root = '/tmp/pics/'
 
 
 class MyDataset():
