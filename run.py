@@ -8,7 +8,7 @@ params = {'bsize': 128,
          'nc': 3,
          'nf': 64,
          'ncode': 3,
-         'n_epochs': 500}
+         'n_epochs': 10}
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 net=ae.Net(params).to(device)
