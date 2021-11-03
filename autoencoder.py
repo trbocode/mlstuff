@@ -21,15 +21,14 @@ class Net(nn.Module):
         self.anticonv4=nn.ConvTranspose2d(params['nf'],params['nc'],4,2,1)
         
     def forward(self,x):
-        x=nn.BatchNorm2d(3)
-        x=nn.LeakyReLU(self.conv1(x))
-        x=nn.LeakyReLU(self.conv2(x))
-        x=nn.LeakyReLU(self.conv3(x))
-        x=nn.LeakyReLU(self.conv4(x))
-        x=nn.LeakyReLU(self.anticonv1(x))
-        x=nn.LeakyReLU(self.anticonv2(x))
-        x=nn.LeakyReLU(self.anticonv3(x))
-        x=nn.LeakyReLU(self.anticonv4(x))
+        #x=F.batchnorm2d(3)
+        x=F.leaky_relu(self.conv1(x))
+        x=F.leaky_relu(self.conv2(x))
+        x=F.leaky_relu(self.conv3(x))
+        x=F.leaky_relu(self.conv4(x))
+        x=F.leaky_relu(self.anticonv1(x))
+        x=F.leaky_relu(self.anticonv2(x))
+        x=F.leaky_relu(self.anticonv3(x))
+        x=F.leaky_relu(self.anticonv4(x))
+        return x
 
-criterion=nn.MSELoss()
-# optimizer=optim.Adam(Net().parameters(),lr=0.001)

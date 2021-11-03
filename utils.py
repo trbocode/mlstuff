@@ -9,10 +9,10 @@ root = '/home/ML_courses/03683533_2021/dataset/'
 
 class MyDataset():
     
-    def _init_(self, image_paths):
+    def __init__(self, image_paths):
         self.image_paths = os.listdir(root)
 
-    def _getitem_(self, index):
+    def __getitem__(self, index):
         image = Image.open(root + self.image_paths[index])
 
         transform=transforms.Compose([
@@ -23,7 +23,7 @@ class MyDataset():
         x = transform(image)
         return x, x # The label is the original pic
 
-    def _len_(self):
+    def __len__(self):
         return len(self.image_paths)
 
 
@@ -31,7 +31,7 @@ class MyDataset():
 def get_pics(params):
     #Preprocessing will go here
     
-    dataset=MyDataset()
+    dataset=MyDataset(root)
     
     dataloader=torch.utils.data.DataLoader(dataset=dataset,batch_size=params['bsize'],shuffle=True)
     return dataloader
