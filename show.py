@@ -9,7 +9,7 @@ import random
 import autoencoder as ae
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-load_path', default='model/modelf.pth', help='Checkpoint to load path from')
+parser.add_argument('-load_path', default='model/modelf_4.pth', help='Checkpoint to load path from')
 parser.add_argument('-num_output', default=64, help='Number of generated outputs')
 args = parser.parse_args()
 
@@ -35,7 +35,7 @@ print(args.num_output)
 with torch.no_grad():
 	# Get generated image from the other image
     for i,data in enumerate(dataloader,0):
-        if(i>1):
+        if(i>0):
             break
         # Display the generated image.
         inputs = data[0].to(device)
