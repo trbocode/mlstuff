@@ -9,15 +9,15 @@ import random
 import autoencoder as ae
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-load_path', default='model/modelf_4.pth', help='Checkpoint to load path from')
+parser.add_argument('-load_path', default='model/modelf_7.pth', help='Checkpoint to load path from')
 parser.add_argument('-num_output', default=64, help='Number of generated outputs')
 args = parser.parse_args()
 
-# Load the checkpoint file.
-state_dict = torch.load(args.load_path)
-
 # Set the device to run on: GPU or CPU.
 device = torch.device("cuda:0" if(torch.cuda.is_available()) else "cpu")
+# Load the checkpoint file.
+state_dict = torch.load(args.load_path)
+print(state_dict['params'])
 # Get the 'params' dictionary from the loaded state_dict.
 params = state_dict['params']
 
@@ -28,7 +28,6 @@ dataloader=ut.get_pics(params)
 criterion=torch.nn.MSELoss()
 net.load_state_dict(state_dict['autoencoder'])
 print(net)
-
 print(args.num_output)
 
 # Turn off gradient calculation to speed up the process.
